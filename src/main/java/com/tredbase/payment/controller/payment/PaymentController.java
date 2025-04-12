@@ -61,4 +61,19 @@ public class PaymentController {
 
         return responseHandlers.handleResponse(response);
     }
+
+    @Operation(summary = "Make payment", description = "Get the payment ledger")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Payment successfully processed"),
+            @ApiResponse(responseCode = "400", description = "Bad request, invalid input"),
+            @ApiResponse(responseCode = "500", description = "Internal server error")
+    })
+    @PostMapping("/paymentLedger")
+    public ResponseEntity<?> getPaymentLedger()
+             {
+
+        BaseResponse response = paymentService.getPaymentLedger();
+
+        return responseHandlers.handleResponse(response);
+    }
 }

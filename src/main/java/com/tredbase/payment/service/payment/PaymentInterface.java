@@ -17,4 +17,5 @@ public interface PaymentInterface {
      * @return A response indicating the result of the payment operation
      */
     BaseResponse makePayment(UUID parentId, UUID studentId, BigDecimal amount );
+    BaseResponse getPaymentLedger();
 }
