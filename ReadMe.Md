@@ -115,6 +115,30 @@ To handle bidirectional relationship without recursion:
 - `Student` uses `@JsonManagedReference`
 - `Parent` uses `@JsonBackReference`
 
+## Design Decisions
+
+### Security Implementation
+
+- JWT tokens generated on login
+- BCrypt password hashing
+- Token validation via filters
+
+### Multi-Table Payment Processing
+
+- Many-to-many between parents and students
+- Transactions handled with `@Transactional`
+- Payments recorded in a ledger
+- Shared parenting scenarios divide payment equally
+
+## Arithmetic Logic and Balance Updates
+
+- **Dynamic Fee Adjustment**: `adjustedAmount = originalAmount * (1 + dynamicAmount)`
+- **Split Payment Logic**: `splitAmount = adjustedAmount / 2` (rounded using HALF_EVEN)
+- **Balance Validation**: Parents must have sufficient balance
+- **Student Balance Update**: Always receives full adjusted amount
+- **Precision Handling**: `BigDecimal` used throughout
+
+
 ---
 
 
