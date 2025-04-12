@@ -9,6 +9,8 @@ import com.tredbase.payment.repository.PaymentLedgerRepository;
 import com.tredbase.payment.repository.StudentRepository;
 import com.tredbase.payment.response.BaseResponse;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,9 +22,10 @@ import java.util.*;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
-@Slf4j
+//@Slf4j
 @Service
 public class PaymentService implements PaymentInterface {
+    private static final Logger log = LoggerFactory.getLogger(PaymentService.class);
 
     // dynamic amount
     @Value("${DYNAMIC_AMOUNT}")
@@ -97,7 +100,7 @@ public class PaymentService implements PaymentInterface {
 
                 // Check if all parents have enough balance
                 List<Parent> insufficientParents = studentParents.stream()
-                        .filter(parentBalance -> parent.getBalance().compareTo(splitAmount) < 0)
+                        .filter(parentBalance -> parentBalance.getBalance().compareTo(splitAmount) < 0)
                         .collect(Collectors.toList());
 
 

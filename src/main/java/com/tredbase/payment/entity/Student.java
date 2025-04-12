@@ -79,7 +79,9 @@ public class Student {
         this.parents = parents;
     }
 
-
+    public void setId(java.util.UUID id) {
+        this.id = id;
+    }
 
     public UUID getId() {
         return id;
