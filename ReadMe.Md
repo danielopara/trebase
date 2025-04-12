@@ -89,6 +89,15 @@ This will start the application on `http://localhost:5000`.
 - Owns the relationship with `@JoinTable`
 - Uses `@JsonManagedReference` for JSON control
 
+### Payment Ledger
+| Field         | Type             | Description                                |
+|---------------|------------------|--------------------------------------------|
+| `id`          | `Long`           | Auto-generated unique ID                   |
+| `parentId`    | `UUID`           | Reference to the parent making the payment |
+| `studentId`   | `UUID`           | Reference to the student receiving payment |
+| `amount`      | `BigDecimal`     | Amount transferred                         |
+| `paymentDate` | `LocalDateTime`  | Date and time when the payment occurred    |
+| `status`      | `String`         | Payment status (e.g., `SUCCESS`, `FAILED`) |
 ---
 
 ##  Relationship Overview
