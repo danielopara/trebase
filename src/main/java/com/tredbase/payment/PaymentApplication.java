@@ -95,10 +95,8 @@ public class PaymentApplication {
 				studentRepository.save(student1);
 				studentRepository.save(student2);
 				studentRepository.save(student3);
-				System.out.println(a.getFirstName());
-				System.out.println(b.getLastname());
-				System.out.println(student1.getFirst_name());
-				System.out.println("Admin user created: admin@test.com / password123 /" + token);
+
+				System.out.println(token);
 			}
 		};
 	}
