@@ -234,19 +234,6 @@ GET http://localhost:5000/api/v1/payment/student/{id}
 3. **Parent Service**: Manages fetching and listing parents and their details.
 4. **User Service**: Handles user login and JWT generation.
 
-### Database Schema
-
-- **Parent Table**: Stores parent information like name and balance.
-- **Student Table**: Stores student information, their parents, and balances.
-- **User Table**: Stores user login credentials and roles.
-
-## Testing
-
-The project includes unit tests for the service layer to ensure correct functionality. To run the tests:
-
-```bash
-mvn test
-```
 
 
  
