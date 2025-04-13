@@ -138,6 +138,11 @@ To handle bidirectional relationship without recursion:
 - **Student Balance Update**: Always receives full adjusted amount
 - **Precision Handling**: `BigDecimal` used throughout
 
+## Test
+To run test in the terminal of the root project type in
+```bash
+mvn test
+```
 
 ---
 
